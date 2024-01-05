@@ -1,0 +1,5 @@
+<% @cows.each do |cow| %>
+    <%= render partial: "shared/cardcow", locals: { cow: cow }  %>
+<% end %>
+
+<button class="btn m-3 p-6"><%= link_to "+", new_cow_path, class: "add-button" %></button>

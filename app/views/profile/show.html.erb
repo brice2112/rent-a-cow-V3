@@ -1,0 +1,15 @@
+<%=render "shared/profile_card"%>
+
+<div class="container-fluid">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <button class="btn m-3" ><%= link_to "My cows", request.params.merge(tab: "my_cows"), class: "tab-button" %></button>
+      <button class="btn m-3" ><%= link_to "My bookings", request.params.merge(tab: "my_bookings"), class: "tab-button" %></button>
+      <button class="btn m-3" ><%= link_to "My booking requests", request.params.merge(tab: "my_booking_requests"), class: "tab-button" %></button>
+  </ul>
+
+  <% if params[:tab].present? %>
+    <%= render "shared/#{params[:tab]}" %>
+  <% else %>
+    <%= render "shared/my_cows" %>
+  <% end %>
+</div>

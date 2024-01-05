@@ -1,0 +1,17 @@
+<h1>All the Cows</h1>
+
+<div class="row">
+  <div class="col-6">
+
+  <% @cows.each do |cow| %>
+    <%= render partial: "shared/cardcow", locals: { cow: cow }  %>
+  <% end %>
+</div>
+       <div class="col-6">
+        <div class="sticky-top">
+        <div style="mapboxgl-map"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
+</div>

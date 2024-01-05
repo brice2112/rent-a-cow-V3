@@ -1,0 +1,34 @@
+    <div class="flex-item">
+      <div class="card-cows d-flex justify-content-between">
+        <div class="d-flex">
+          <% if cow.photo.key %>
+            <%= cl_image_tag(cow.photo.key, width: 120, height: 120) %>
+          <% end %>
+          <div class="card-cow-infos">
+            <h2> <%= link_to "#{cow.name}", cow_path(cow.id) %></h2>
+            <p class="card-info-bold"><%= cow.race %></p>
+            <p class="card-info-light"><%= cow.gender %></p>
+            <% if cow.age == 1 %>
+              <p class="card-info-light"><%= cow.age %> year old</p>
+            <% else %>
+              <p class="card-info-light"><%= cow.age %> years old</p>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-cow-infos d-flex">
+        <div>
+          <% if !cow.bookings.empty? %>
+            <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3 mx-3 p-3 fs-6">booked</p>
+          <% end %>
+        </div>
+        <div>
+          <p class="card-price"><%= cow.price%>€</p>
+          <% if !cow.rating %>
+            <p class="card-info-light">Not rated yet</p>
+          <% else %>
+            <p class="card-rating"><%= cow.rating%>/5</p>
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
